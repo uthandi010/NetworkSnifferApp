@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetworkSnifferApp.MainPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="5">
+            <Button Text="Find Network Devices" Clicked="OnFindDevicesClicked" WidthRequest="200"/>
+            <Picker x:Name="DevicePicker" Title="Select Network Device"/>
+            <Button x:Name="StartCaptureButton" Text="Start Capture" Clicked="OnStartCaptureClicked" WidthRequest="200"/>
+            <Label x:Name="ResultLabel" Text="Results will appear here..." />
+            <Button x:Name="StopCaptureButton" Text="Stop Capture" Clicked="OnStopCaptureClicked"  WidthRequest="200"/>
+            <Button Text="Download PCAP" WidthRequest="200" Clicked="OnSaveCaptureClicked"/>
+            <ListView x:Name="PacketList" ItemsSource="{Binding Packets}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout Padding="10">
+                                <Label Text="{Binding Number}" FontAttributes="Bold" />
+                                <Label Text="{Binding RawData}" />
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
