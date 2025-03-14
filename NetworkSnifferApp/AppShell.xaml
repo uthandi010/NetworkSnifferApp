@@ -8,7 +8,7 @@
     Title="NetworkSnifferApp">
 
     <ShellContent
-        Title="Home"
+        Title="NetFLowCapture"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
